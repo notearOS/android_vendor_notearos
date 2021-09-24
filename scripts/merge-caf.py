@@ -2,6 +2,7 @@
 #
 #
 # Copyright (C) 2021 Paranoid Android
+#               2021 The notearOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,10 +17,11 @@
 # limitations under the License.
 
 """
-Merge script for AOSPA
+Merge script for notearOS
+                 AOSPA
 
  The source directory; this is automatically two folder up because the script
- is located in vendor/pa/scripts. Other ROMs will need to change this. The logic is
+ is located in vendor/notearos/scripts. Other ROMs will need to change this. The logic is
  as follows:
 
  1. Get the absolute path of the script with os.path.realpath in case there is a symlink
@@ -40,7 +42,7 @@ from git.exc import GitCommandError
 
 BASE_URL = "https://source.codeaurora.org/quic/la/"
 WORKING_DIR = "{0}/../../..".format(os.path.dirname(os.path.realpath(__file__)))
-MANIFEST_NAME = "aospa.xml"
+MANIFEST_NAME = "notearos.xml"
 REPOS_TO_MERGE = {}
 REPOS_RESULTS = {}
 
@@ -100,7 +102,7 @@ def read_custom_manifest(default_repos):
             if repo.tag == "remove-project":
                 removed_repos.append(repo.get("name"))
             else:
-                if repo.get("remote") == "aospa":
+                if repo.get("remote") == "notearos":
                     project_repos.append(repo.get("path"))
 
         for repo in removed_repos:

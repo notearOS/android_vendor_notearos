@@ -1,6 +1,6 @@
 # APN List
 PRODUCT_COPY_FILES += \
-    vendor/pa/prebuilt/etc/apns-conf.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/apns-conf.xml
+    vendor/notearos/prebuilt/etc/apns-conf.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/apns-conf.xml
 
 # HIDL Wrapper
 PRODUCT_PACKAGES += \
@@ -33,7 +33,7 @@ PRODUCT_PACKAGES += \
 
 # Sensitive Phone Numbers list
 PRODUCT_COPY_FILES += \
-    vendor/pa/prebuilt/etc/sensitive_pn.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sensitive_pn.xml
+    vendor/notearos/prebuilt/etc/sensitive_pn.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sensitive_pn.xml
 
 # Sounds
 PRODUCT_PRODUCT_PROPERTIES += \

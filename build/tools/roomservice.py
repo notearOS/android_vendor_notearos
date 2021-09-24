@@ -4,6 +4,7 @@
 # Copyright (C) 2013 Cybojenix <anthonydking@gmail.com>
 # Copyright (C) 2013 The OmniROM Project
 # Copyright (C) 2015-2019 ParanoidAndroid Project
+# Copyright (C) 2021 The notearOS Project
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -27,7 +28,7 @@ extra_manifests_dir = '.repo/manifests/'
 upstream_manifest_path = '.repo/manifest.xml'
 local_manifests_dir = '.repo/local_manifests'
 roomservice_manifest_path = local_manifests_dir + '/roomservice.xml'
-dependencies_json_path = 'vendor/pa/products/%s/pa.dependencies'
+dependencies_json_path = 'vendor/notearos/products/%s/notearos.dependencies'
 
 # Indenting code from https://stackoverflow.com/a/4590052
 def indent(elem, level=0):

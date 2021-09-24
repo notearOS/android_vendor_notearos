@@ -1,4 +1,4 @@
-function __print_aospa_functions_help() {
+function __print_notearos_functions_help() {
 cat <<EOF
 Additional Paranoid Android functions:
 - cout:            Changes directory to out.
@@ -69,11 +69,11 @@ function gerritremote()
         return 1
     fi
     git remote rm aospagerrit 2> /dev/null
-    local REMOTE=$(git config --get remote.aospa.projectname)
+    local REMOTE=$(git config --get remote.notearos.projectname)
     local AOSPA="true"
     if [ -z "$REMOTE" ]
     then
-        REMOTE=$(git config --get remote.aosp.projectname)
+        REMOTE=$(git config --get remote.notearos.projectname)
         AOSPA="false"
     fi
     if [ -z "$REMOTE" ]
@@ -155,12 +155,12 @@ function githubremote()
         echo ".git directory not found. Please run this from the root directory of the Android repository you wish to set up."
         return 1
     fi
-    git remote rm aospa 2> /dev/null
+    git remote rm notearos 2> /dev/null
     local REMOTE=$(git config --get remote.caf.projectname)
 
     if [ -z "$REMOTE" ]
     then
-        REMOTE=$(git config --get remote.aospa.projectname)
+        REMOTE=$(git config --get remote.notearos.projectname)
     fi
 
     local PROJECT=$(echo $REMOTE | sed -e "s#platform/#android/#g; s#/#_#g")
@@ -170,8 +170,8 @@ function githubremote()
         PROJECT=$(echo $PROJECT | sed -e "s#qcom-opensource#qcom_opensource#")
     fi
 
-    git remote add aospa https://github.com/AOSPA/$PROJECT
-    echo "Remote 'aospa' created"
+    git remote add notearos https://github.com/notearOS/$PROJECT
+    echo "Remote 'notearOS' created"
 }
 
 function repolastsync() {
@@ -184,7 +184,7 @@ function repolastsync() {
 function repopick()
 {
     T=$(gettop)
-    $T/vendor/pa/build/tools/repopick.py $@
+    $T/vendor/notearos/build/tools/repopick.py $@
 }
 
 function cafmerge()
@@ -192,9 +192,9 @@ function cafmerge()
     target_branch=$1
     set_stuff_for_environment
     T=$(gettop)
-    python3 $T/vendor/pa/scripts/merge-caf.py $target_branch
+    python3 $T/vendor/notearos/scripts/merge-caf.py $target_branch
 }
 
 # Enable ThinLTO Source wide.
-echo "Building with ThinLTO."
-export GLOBAL_THINLTO=true
+echo "Building without ThinLTO."
+export GLOBAL_THINLTO=false

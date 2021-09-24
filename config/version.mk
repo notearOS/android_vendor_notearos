@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2019 Paranoid Android
+#               2021 The notearOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,23 +19,23 @@
 # Handle various build version information.
 #
 # Guarantees that the following are defined:
-#     PA_VERSION_FLAVOR
-#     PA_VERSION_CODE
-#     PA_BUILD_VARIANT
+#     NOTEAROS_VERSION_FLAVOR
+#     NOTEAROS_VERSION_CODE
+#     NOTEAROS_BUILD_VARIANT
 #
 
-ifndef PA_VERSION_FLAVOR
+ifndef NOTEAROS_VERSION_FLAVOR
   # This is the global pa version flavor that determines the focal point
-  # behind our releases. This is bundled alongside the $(PA_VERSION_CODE)
+  # behind our releases. This is bundled alongside the $(NOTEAROS_VERSION_CODE)
   # and only changes per major Android releases.
-  PA_VERSION_FLAVOR := Ruby
+  NOTEAROS_VERSION_FLAVOR := Eleven
 endif
 
-ifndef PA_VERSION_CODE
+ifndef NOTEAROS_VERSION_CODE
   # The version code is the upgradable portion during the cycle of
   # every major Android release. Each version code upgrade indicates
   # our own major release during each lifecycle.
-  PA_VERSION_CODE := 1
+  NOTEAROS_VERSION_CODE := 1
 endif
 
 # Determines the variant of the build.
@@ -43,33 +44,29 @@ endif
 # ALPHA: Public/Private builds for testing purposes
 # BETA: Public builds for testing purposes
 # Public releases will not include a TAG
-ifndef PA_BUILDTYPE
-  PA_BUILD_VARIANT := DEV
+ifndef NOTEAROS_BUILDTYPE
+  NOTEAROS_BUILD_VARIANT := DEV
 else
-  ifeq ($(PA_BUILDTYPE), ALPHA)
-    PA_BUILD_VARIANT := Alpha
-  else ifeq ($(PA_BUILDTYPE), BETA)
-    PA_BUILD_VARIANT := Beta
-  else ifeq ($(PA_BUILDTYPE), RELEASE)
-    PA_BUILD_VARIANT := Release
+  ifeq ($(NOTEAROS_BUILDTYPE), RELEASE)
+    NOTEAROS_BUILD_VARIANT := Release
   endif
 endif
 
 # Append date to pa zip name
-ifeq ($(PA_VERSION_APPEND_TIME_OF_DAY),true)
+ifeq ($(NOTEAROS_VERSION_APPEND_TIME_OF_DAY),true)
   BUILD_DATE := $(shell date -u +%Y%m%d_%H%M%S)
 else
   BUILD_DATE := $(shell date -u +%Y%m%d)
 endif
 
-PA_VERSION := $(shell echo $(PA_VERSION_FLAVOR) | tr A-Z a-z)-$(PA_VERSION_CODE)-$(PA_BUILD)-$(BUILD_DATE)-$(shell echo $(PA_BUILD_VARIANT) | tr A-Z a-z)
+NOTEAROS_VERSION := $(shell echo $(NOTEAROS_VERSION_FLAVOR) | tr A-Z a-z)-$(NOTEAROS_VERSION_CODE)-$(NOTEAROS_BUILD)-$(BUILD_DATE)-$(shell echo $(NOTEAROS_BUILD_VARIANT) | tr A-Z a-z)
 
-# Paranoid Android System Version
+# notearOS Android System Version
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    ro.pa.version=$(PA_VERSION)
+    ro.notearos.version=$(NOTEAROS_VERSION)
 
-# Paranoid Android Platform Display Version
+# notearOS Android Platform Display Version
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    ro.pa.version.flavor=$(PA_VERSION_FLAVOR) \
-    ro.pa.version.code=$(PA_VERSION_CODE) \
-    ro.pa.build.variant=$(PA_BUILD_VARIANT)
+    ro.notearos.version.flavor=$(NOTEAROS_VERSION_FLAVOR) \
+    ro.notearos.version.code=$(NOTEAROS_VERSION_CODE) \
+    ro.notearos.build.variant=$(NOTEAROS_BUILD_VARIANT)

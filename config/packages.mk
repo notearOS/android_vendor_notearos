@@ -1,4 +1,5 @@
 # Copyright (C) 2021 Paranoid Android
+#               2021 The notearOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,22 +14,12 @@
 # limitations under the License.
 
 # ADB
-ifneq ($(TARGET_BUILD_VARIANT),user)
 PRODUCT_PACKAGES += \
     adb_root
-endif
-
-# Abstruct
-PRODUCT_PACKAGES += \
-    Abstruct
 
 # AOSP Packages
 PRODUCT_PACKAGES += \
     ThemePicker
-
-# Camera
-PRODUCT_PACKAGES += \
-    GoogleCameraGo
 
 # Charger Images
 PRODUCT_PACKAGES += \
@@ -45,25 +36,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-full-rtti
 
-# Paranoid Packages
-PRODUCT_PACKAGES += \
-    ParanoidPapers \
-    ParanoidQuickStep
-
-ifneq ($(filter RELEASE BETA,$(PA_BUILDTYPE)),)
-#    PRODUCT_PACKAGES += \
-#    ParanoidHub
-endif
-
-# Face Sense
-TARGET_ENABLE_FACE_SENSE := true
-
-PRODUCT_PACKAGES += \
-    ParanoidFaceSense
-
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    ro.face.sense_service=$(TARGET_ENABLE_FACE_SENSE)
-
 # Gestures
 PRODUCT_PACKAGES += \
     vendor.aospa.power-service
@@ -74,11 +46,3 @@ PRODUCT_PACKAGES += \
     libqti_vndfwk_detect \
     libvndfwk_detect_jni.qti.vendor \
     libqti_vndfwk_detect.vendor
-
-# Shell
-PRODUCT_PACKAGES += \
-    nano
-
-# SystemUI Plugins
-PRODUCT_PACKAGES += \
-    QuickAccessWallet

@@ -2,6 +2,7 @@
 # Copyright (C) 2017 Unlegacy-Android
 # Copyright (C) 2017-2020 The LineageOS Project
 # Copyright (C) 2019 Paranoid Android
+# Copyright (C) 2021 The notearOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,7 +20,7 @@
 # PA OTA Update Package
 # ---------------------
 
-PA_TARGET_PACKAGE := $(PRODUCT_OUT)/pa-$(PA_VERSION).zip
+PA_TARGET_PACKAGE := $(PRODUCT_OUT)/notearos-$(PA_VERSION).zip
 
 .PHONY: bacon
 bacon: $(INTERNAL_OTA_PACKAGE_TARGET)

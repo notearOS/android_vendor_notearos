@@ -13,32 +13,16 @@
 # limitations under the License.
 
 PRODUCT_PACKAGES += \
-    AccentColorDodgerBlueOverlay \
-    AccentColorHadalZoneOverlay \
-    AccentColorLostInForestOverlay \
-    AccentColorMagentaOverlay \
-    AccentColorPixelBlueOverlay \
-    AccentColorPurpleHeatOverlay \
-    AccentColorRedOverlay \
-    AccentColorRoseOverlay \
-    AccentColorScooterOverlay \
-    AccentColorSlateOverlay \
-    AccentColorSuperNovaOverlay \
-    AccentColorTealOverlay \
-    AccentColorTorchRedOverlay \
     AOSPABluetoothOverlay \
     AOSPAFrameworksOverlay \
     AOSPAImmersiveNavigationOverlay \
-    AOSPAOverlayStub \
     AOSPASettingsOverlay \
     AOSPASettingsProviderOverlay \
     AOSPASystemUIOverlay \
     AOSPATelephonyOverlay \
     AOSPAThemePickerOverlay \
-    FontGoogleSansOverlay \
     FontInterOverlay \
     FontManropeOverlay \
     FontUrbanistOverlay \
     ParanoidDozeOverlay \
-    ParanoidHubOverlay \
-    ParanoidLauncherOverlay
+    ParanoidHubOverlay
